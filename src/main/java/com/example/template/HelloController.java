@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.lang.reflect.Array;
+
 public class HelloController {
 
     @FXML
@@ -15,20 +17,26 @@ public class HelloController {
     //mutator
     // do prime factorization
     public void handleClick(ActionEvent actionEvent) {
-        String txt = txtInput.getText();
-        System.out.println(inString(txt,"a"));
-        System.out.println(howManyinString(txt,"a"));
-        System.out.println(howManySinS(txt,"the"));
 
-
-
-       // System.out.println(generatedivison());
     }
+
+
+
+
+
+    public int roll(){
+
+    }
+
+
+
+
 
 // how many of any given substring in a string
     // how many of any give char in
     public boolean inString(String x, String a){
         int test = 0;
+        x = x.toLowerCase();
         while (test < x.length()){
 //            if (x.charAt(test) == a){
 //                return true;
@@ -50,6 +58,7 @@ public class HelloController {
 //            if (x.charAt(test) == a){
 //                return true;
 //            }
+            x= x.toLowerCase();
             String b = x.substring(test,test+1);
             if (b.equals(a)){
                 num++;
@@ -64,16 +73,17 @@ public class HelloController {
     public int howManySinS(String x, String a){
         int loc = x.indexOf("t");
         int num = 0;
-        String b = x;
+        String b = x.toLowerCase();
+        String c = "A";
 
         while (loc != -1){
 
-            b = b.substring(loc);
+            c = b.substring(loc,loc+3);
 
-            if (b.contains(a)){
+            if (c.contains(a)){
                 num++;
             }
-            b = b.substring(1);
+            b = b.substring(loc+1);
             if (b.contains("t")){
                 loc = b.indexOf("t");
             }else{
@@ -84,6 +94,18 @@ public class HelloController {
 
         }
         return num;
+    }
+
+
+    public String primefactor(int a){
+        String prime = "";
+        for (int i = 2; i <= a; i++) {
+            while (a % i == 0) {
+                prime += i;
+                a /= i;
+            }
+        }
+        return prime;
     }
 
 
