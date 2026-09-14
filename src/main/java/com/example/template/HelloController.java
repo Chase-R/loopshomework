@@ -24,9 +24,6 @@ public class HelloController {
 
 
 
-    public int roll(){
-
-    }
 
 
 
