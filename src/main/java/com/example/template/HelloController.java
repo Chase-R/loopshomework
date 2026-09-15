@@ -110,7 +110,7 @@ public class HelloController {
 
 
 
-    public boolean prime(int number){
+    public boolean primefactorizaion(int number){
         if(number<2){
             return false;
         }
@@ -125,6 +125,12 @@ public class HelloController {
         }
         return true;
     }
+
+
+
+
+   //look for aray for randnum and if has print arrays
+    //generate arrays with armdmun
 
 
 
