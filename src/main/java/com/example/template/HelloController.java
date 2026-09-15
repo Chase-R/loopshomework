@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class HelloController {
 
@@ -13,14 +13,52 @@ public class HelloController {
     public Label lblDisplay;
     @FXML
     public TextField txtInput;
+    public TextField positiontxt;
 
     //mutator
     // do prime factorization
+
+    private int[] nums = new int[10];
+    private ArrayList<Integer> nums2 = new ArrayList<>();
     public void handleClick(ActionEvent actionEvent) {
-        System.out.println(expandNumber(Integer.parseInt(txtInput.getText())));
+        for (int i = 0; i<10; i++){
+            nums2.add((int)(Math.random()*10+1));
+        }
+        System.out.println(nums2);
+
+
 
 
     }
+
+    public void handlereplace() {
+        System.out.println(replace());
+    }
+
+
+
+    public void handleadd(ActionEvent actionEvent) {
+        System.out.println(add());
+    }
+
+    public ArrayList<Integer> add() {
+        if
+        int position = Integer.parseInt(positiontxt.getText());
+        int num = Integer.parseInt(txtInput.getText());
+        nums2.add(position,num);
+        return nums2;
+    }
+
+
+    public ArrayList<Integer> replace() {
+        int position = Integer.parseInt(positiontxt.getText());
+        int num = Integer.parseInt(txtInput.getText());
+        nums2.set(position, num);
+        return nums2;
+    }
+
+
+    //userchose if they want to add a number at a location or replace
 
 
 
@@ -134,6 +172,46 @@ public class HelloController {
 
 
 
+    public ArrayList<Integer> searcharray(){
+        int[] nums = new int[10];
+        ArrayList<Integer> nums2 = new ArrayList<>();
+        for (int i = 0; i<10; i++){
+            nums[i]=(int)(Math.random()*10+1);
+        }
+        for (int i=0; i < nums.length;i++){
+            System.out.print(nums[i]+",");
+        }
+        System.out.println("");
+        int randnum = (int)(Math.random()*10+1);
+        System.out.println(randnum);
+        for (int i = 0; i<nums.length; i++){
+            if (nums[i]== randnum){
+                System.out.println(i);
+                nums2.add(i);
+            }
+
+        }
+        return nums2;
+
+    }
+
+    public void printarrayInts(int[] array){
+        System.out.print("[");
+        for (int i=0; i < array.length;i++){
+            System.out.print(array[i]);
+            if(i != array.length-1){
+                System.out.print(",");
+            }
+
+        }
+        System.out.print("]");
+        System.out.println();
+
+    }
+
+
+
+
 
     public String generatedivison(){
         int numerator = Randnum(1,100);
@@ -176,6 +254,7 @@ public class HelloController {
     public int Randnum(int min,int max){
         return (int)(Math.random()*(max-min+1)+min);
     }
+
 
 
 }

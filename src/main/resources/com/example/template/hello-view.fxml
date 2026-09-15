@@ -7,8 +7,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.template.HelloController">
    <children>
-      <Button layoutX="251.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleClick" text="click me" textFill="#dd1919" />
+      <Button layoutX="251.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleadd" text="add" textFill="#dd1919" />
       <Label fx:id="lblDisplay" layoutX="214.0" layoutY="168.0" text="this is where we display things" />
-      <TextField fx:id="txtInput" layoutX="214.0" layoutY="200.0" promptText="type something here" />
+      <TextField fx:id="txtInput" layoutX="214.0" layoutY="200.0" promptText="number" />
+      <TextField fx:id="positiontxt" layoutX="214.0" layoutY="232.0" promptText="position" />
+      <Button fx:id="replace" layoutX="251.0" layoutY="89.0" mnemonicParsing="false" onAction="#handlereplace" text="replace" textFill="#dd1919" />
+      <Button fx:id="replace1" layoutX="251.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleClick" text="start" textFill="#dd1919" />
    </children>
 </AnchorPane>
