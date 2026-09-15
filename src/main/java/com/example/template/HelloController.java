@@ -17,6 +17,8 @@ public class HelloController {
     //mutator
     // do prime factorization
     public void handleClick(ActionEvent actionEvent) {
+        System.out.println(expandNumber(Integer.parseInt(txtInput.getText())));
+
 
     }
 
@@ -135,6 +137,29 @@ public class HelloController {
 
         }
         return (numerator + "/" + denominator);
+    }
+    public static String expandNumber(int num) {
+        String result = "";
+        int placeValue = 1;
+
+        while (placeValue * 10 <= num) {
+            placeValue *= 10;
+        }
+
+        while (placeValue >= 1) {
+            int digit = (num / placeValue) % 10;
+
+            if (digit != 0) {
+                if (!result.equals("")) {
+                    result += " + ";
+                }
+                result += (digit * placeValue);
+            }
+
+            placeValue /= 10;
+        }
+
+        return result;
     }
 
 
