@@ -12,19 +12,50 @@ public class HelloController {
     @FXML
     public Label lblDisplay;
     @FXML
-    public TextField txtInput;
-    public TextField positiontxt;
+    public TextField txtrolls;
+    public TextField diceside;
+    public TextField dicenum;
 
     //mutator
     // do prime factorization
 
     private int[] nums = new int[10];
     private ArrayList<Integer> nums2 = new ArrayList<>();
+    private ArrayList<Integer> nums3 = new ArrayList<>();
+
+
+
     public void handleClick(ActionEvent actionEvent) {
-        for (int i = 0; i<10; i++){
-            nums2.add((int)(Math.random()*10+1));
+//        for (int i = 0; i<10; i++){
+//            nums2.add((int)(Math.random()*10+1));
+//        }
+//        System.out.println(nums2);
+
+        for (int i = 0; i<(Integer.parseInt(diceside.getText())*(Integer.parseInt(txtrolls.getText()))); i++){
+            int roll = 0;
+            for (int x = 0; x<Integer.parseInt(dicenum.getText()); x++){
+                roll += Randnum(1,Integer.parseInt(diceside.getText()));
+            }
+
+            nums2.add(roll);
         }
         System.out.println(nums2);
+        for (int i = 0; i<Integer.parseInt(txtrolls.getText()); i++){
+            nums3.add(0);
+        }
+        System.out.println(nums3);
+
+        for (int i =0; i<nums2.toArray().length;i++){
+            nums3.set(nums2.get(i),nums3.get(nums2.get(i))+1);
+
+//            for (int x=1;x<=12;x++){
+//                if(nums2.get(i) ==x){
+//                    nums3.set(x,nums3.get(x)+1);
+//                }
+//            }
+
+        }
+        System.out.println(nums3);
 
 
 
@@ -32,30 +63,29 @@ public class HelloController {
     }
 
     public void handlereplace() {
-        System.out.println(replace());
+        System.out.println("no");
     }
 
 
 
     public void handleadd(ActionEvent actionEvent) {
-        System.out.println(add());
+        System.out.println("no");
     }
 
-    public ArrayList<Integer> add() {
-        if
-        int position = Integer.parseInt(positiontxt.getText());
-        int num = Integer.parseInt(txtInput.getText());
-        nums2.add(position,num);
-        return nums2;
-    }
-
-
-    public ArrayList<Integer> replace() {
-        int position = Integer.parseInt(positiontxt.getText());
-        int num = Integer.parseInt(txtInput.getText());
-        nums2.set(position, num);
-        return nums2;
-    }
+//    public ArrayList<Integer> add() {
+//        int position = Integer.parseInt(positiontxt.getText());
+//        int num = Integer.parseInt(txtInput.getText());
+//        nums2.add(position,num);
+//        return nums2;
+//    }
+//
+//
+//    public ArrayList<Integer> replace() {
+//        int position = Integer.parseInt(positiontxt.getText());
+//        int num = Integer.parseInt(txtInput.getText());
+//        nums2.set(position, num);
+//        return nums2;
+//    }
 
 
     //userchose if they want to add a number at a location or replace

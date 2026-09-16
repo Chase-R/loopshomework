@@ -9,9 +9,10 @@
    <children>
       <Button layoutX="251.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleadd" text="add" textFill="#dd1919" />
       <Label fx:id="lblDisplay" layoutX="214.0" layoutY="168.0" text="this is where we display things" />
-      <TextField fx:id="txtInput" layoutX="214.0" layoutY="200.0" promptText="number" />
-      <TextField fx:id="positiontxt" layoutX="214.0" layoutY="232.0" promptText="position" />
+      <TextField fx:id="dicenum" layoutX="214.0" layoutY="200.0" promptText="number of dice" />
+      <TextField fx:id="diceside" layoutX="214.0" layoutY="232.0" promptText="dice sides" />
       <Button fx:id="replace" layoutX="251.0" layoutY="89.0" mnemonicParsing="false" onAction="#handlereplace" text="replace" textFill="#dd1919" />
       <Button fx:id="replace1" layoutX="251.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleClick" text="start" textFill="#dd1919" />
+      <TextField fx:id="txtrolls" layoutX="214.0" layoutY="266.0" promptText="rolls" />
    </children>
 </AnchorPane>
