@@ -22,15 +22,111 @@ public class HelloController {
     private int[] nums = new int[10];
     private ArrayList<Integer> nums2 = new ArrayList<>();
     private ArrayList<Integer> nums3 = new ArrayList<>();
-
+    private ArrayList<Integer> nums4 = new ArrayList<>();
+    private ArrayList<Boolean> bool1 = new ArrayList<>();
+    private ArrayList<Boolean> bool2 = new ArrayList<>();
+    public  ArrayList<Character> chararray = new ArrayList<>();
+    public  ArrayList<Character> codearray = new ArrayList<>();
 
 
     public void handleClick(ActionEvent actionEvent) {
-//        for (int i = 0; i<10; i++){
-//            nums2.add((int)(Math.random()*10+1));
-//        }
-//        System.out.println(nums2);
+        System.out.println((char)65);//loop and start at 65
+        encode();
 
+//        for (int i = 0; i<10; i++){
+//            nums4.add((int)(Math.random()*10+1));
+//        }
+//        System.out.println(nums4);
+//        bool1.add(false);
+//        bool1.add(true);
+//        bool1.add(false);
+//        bool1.add(false);
+//        bool1.add(false);
+//        bool1.add(true);
+//        bool1.add(true);
+//        bool1.add(false);
+//        bool1.add(true);
+//        bool1.add(false);
+//
+//
+//        for (int i = bool1.size()-1; i>=0; i--){
+//            if (bool1.get(i) == true){
+//                nums4.remove(i);
+//            }
+//        }
+//        System.out.println(bool1);
+//        System.out.println(nums4);
+
+        //encoding system
+        //[a,b,c,d....]
+        //[!,@.#,$....]
+        //encode using this system
+
+
+
+
+    }
+
+    public void encode(){
+        for (int i=97; i<123; i++ ){
+            chararray.add((char)i);
+        }
+        for (int i=37; i<63; i++ ){
+            codearray.add((char)i);
+        }
+        System.out.println(chararray);
+        System.out.println(codearray);
+    }
+
+    public void Removefromarray(){
+        ArrayList<String> letters = new ArrayList<>();
+        letters.add("a");
+        letters.add("c");
+        letters.add("a");
+        letters.add("a");
+        letters.add("d");
+        letters.add("q");
+        letters.add("i");
+        System.out.println(letters);
+        String removei = "a";
+        for (int i=letters.size()-1; i >=0; i--){
+            if (letters.get(i).equals(removei)){
+                letters.remove(removei);
+
+            }
+        }
+        System.out.println(letters);
+
+    }
+
+
+//    public ArrayList<String> removestring(String item){
+//        int insatance = 0;
+//        for (int i = 0; i<nums5.toArray().length; i++){
+//            if (nums5.get(i).equals(item)){
+//                insatance++;
+//                nums5.remove(i);
+//            }
+//        }
+//        System.out.println(insatance);
+//        return nums5;
+//    }
+
+    public ArrayList<Integer> RemoveInt(int item){
+        int insatance = 0;
+        for (int i = nums4.size()-1; i>=0; i--){
+            if (nums4.get(i) == item){
+                insatance++;
+                nums4.remove(i);
+            }
+        }
+        System.out.println(insatance);
+        return nums4;
+    }
+
+
+
+    public void diceroll(){
         for (int i = 0; i<(Integer.parseInt(diceside.getText())*(Integer.parseInt(txtrolls.getText()))); i++){
             int roll = 0;
             for (int x = 0; x<Integer.parseInt(dicenum.getText()); x++){
@@ -56,10 +152,6 @@ public class HelloController {
 
         }
         System.out.println(nums3);
-
-
-
-
     }
 
     public void handlereplace() {
