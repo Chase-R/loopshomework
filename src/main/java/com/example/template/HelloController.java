@@ -3,6 +3,7 @@ package com.example.template;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class HelloController {
     public TextField txtrolls;
     public TextField diceside;
     public TextField dicenum;
+    public ListView wordListView;
 
     //mutator
     // do prime factorization
@@ -27,15 +29,56 @@ public class HelloController {
     private ArrayList<Boolean> bool2 = new ArrayList<>();
     public  ArrayList<Character> chararray = new ArrayList<>();
     public  ArrayList<Character> codearray = new ArrayList<>();
+    private boolean[] lockers = new boolean[100];
+    private String[] words =  new String[30];
 
 
     public void handleClick(ActionEvent actionEvent) {
-        System.out.println((char)65);//loop and start at 65
-        encode();
+        //encode(dicenum.getText().toLowerCase());
+        String[] words = {
+                "apple",
+                "application",
+                "apply",
+                "app",
+                "animal",
+                "answer",
+                "another",
+                "back",
+                "basket",
+                "bathroom",
+                "book",
+                "books",
+                "birthday",
+                "blue",
+                "black",
+                "car",
+                "card",
+                "care",
+                "cat",
+                "catch",
+                "computer",
+                "come",
+                "complete",
+                "day",
+                "dark",
+                "door",
+                "dog",
+                "school",
+                "schoolwork",
+                "science"
+        };
 
-//        for (int i = 0; i<10; i++){
-//            nums4.add((int)(Math.random()*10+1));
-//        }
+
+        for (int i = 0; i<100; i++){
+            lockers[i] = false;
+        }
+        for (int i = 0; i<100; i++){
+            System.out.print(lockers[i]+",");
+        }
+        System.out.println(" ");
+        locker();
+
+
 //        System.out.println(nums4);
 //        bool1.add(false);
 //        bool1.add(true);
@@ -67,16 +110,77 @@ public class HelloController {
 
     }
 
-    public void encode(){
-        for (int i=97; i<123; i++ ){
+    public void locker() {
+        for (int i = 1; i <= 100; i++) {
+
+
+            for (int x = 1; x <= 100; x++) {
+
+
+                if (x % i == 0) {
+
+                    // Toggle the locker
+                    if (lockers[x - 1]) {
+                        lockers[x - 1] = false;
+                    } else {
+                        lockers[x - 1] = true;
+                    }
+                }
+            }
+
+
+            for (int q = 0; q < 100; q++) {
+                System.out.print(lockers[q] + ",");
+            }
+
+            System.out.println(" ");
+        }
+
+
+        for (int i = 0; i < 100; i++) {
+            System.out.print(lockers[i] + ",");
+        }
+
+        System.out.println(" ");
+    }
+
+    public void encode(String x) {
+        for (int i = 97; i < 123; i++) {
             chararray.add((char)i);
         }
-        for (int i=37; i<63; i++ ){
+
+        for (int i = 37; i < 63; i++) {
             codearray.add((char)i);
         }
+
         System.out.println(chararray);
         System.out.println(codearray);
+
+        String encoded = "";
+
+        for (int i = 0; i < x.length(); i++) {
+
+            if (x.charAt(i) == ' ') {
+                encoded += " ";
+
+            } else {
+                for (int j = 0; j < chararray.size(); j++) {
+
+                    if (x.charAt(i) == chararray.get(j)) {
+                        encoded += codearray.get(j);
+                    }
+                }
+            }
+
+            System.out.println(encoded);
+        }
     }
+    //when start dialing number or num it cmes up automatically
+    //array of 30 words make sure parts of words over lap
+    //code so when they start typing it shows all possible words
+    // uses list view
+    //
+
 
     public void Removefromarray(){
         ArrayList<String> letters = new ArrayList<>();

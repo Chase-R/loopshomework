@@ -2,17 +2,19 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.template.HelloController">
    <children>
-      <Button layoutX="251.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleadd" text="add" textFill="#dd1919" />
-      <Label fx:id="lblDisplay" layoutX="214.0" layoutY="168.0" text="this is where we display things" />
-      <TextField fx:id="dicenum" layoutX="214.0" layoutY="200.0" promptText="number of dice" />
-      <TextField fx:id="diceside" layoutX="214.0" layoutY="232.0" promptText="dice sides" />
-      <Button fx:id="replace" layoutX="251.0" layoutY="89.0" mnemonicParsing="false" onAction="#handlereplace" text="replace" textFill="#dd1919" />
+      <Button layoutX="441.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleadd" text="add" textFill="#dd1919" />
+      <Label fx:id="lblDisplay" layoutX="404.0" layoutY="136.0" text="this is where we display things" />
+      <TextField fx:id="dicenum" layoutX="208.0" layoutY="106.0" promptText="number of dice" />
+      <TextField fx:id="diceside" layoutX="404.0" layoutY="200.0" promptText="dice sides" />
+      <Button fx:id="replace" layoutX="441.0" layoutY="57.0" mnemonicParsing="false" onAction="#handlereplace" text="replace" textFill="#dd1919" />
       <Button fx:id="replace1" layoutX="251.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleClick" text="start" textFill="#dd1919" />
-      <TextField fx:id="txtrolls" layoutX="214.0" layoutY="266.0" promptText="rolls" />
+      <TextField fx:id="txtrolls" layoutX="404.0" layoutY="234.0" promptText="rolls" />
+      <ListView fx:id="wordListView" layoutX="183.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
