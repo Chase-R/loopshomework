@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class HelloController {
 
@@ -19,7 +22,18 @@ public class HelloController {
     public ListView wordListView;
 
     //mutator
-    // do prime factorization
+    //SIMULATION
+    //happy meal
+    //goal is to be mcdonald happy mea pirze colector
+    //collect all prizes and they are random
+    //how many timws go to mcdonalds to fing
+    //how many of each prize doyou have
+    //avg number it takes to get all prizes
+    //random chances like im app purchase
+    //thigs have diference chances
+    //profit margins
+    //some prizes are rarer
+    //one with equa and one with unequal
 
     private int[] nums = new int[10];
     private ArrayList<Integer> nums2 = new ArrayList<>();
@@ -30,53 +44,28 @@ public class HelloController {
     public  ArrayList<Character> chararray = new ArrayList<>();
     public  ArrayList<Character> codearray = new ArrayList<>();
     private boolean[] lockers = new boolean[100];
-    private String[] words =  new String[30];
-
+    private boolean[] havetoy = new boolean[10];
+    private int[] numoftoy = new int[10];
+    ArrayList<String> words = new ArrayList<>();
 
     public void handleClick(ActionEvent actionEvent) {
+        HappyMeal();
+        printarrayInts(numoftoy);
+
+//        words.clear();
+//        addwords();
         //encode(dicenum.getText().toLowerCase());
-        String[] words = {
-                "apple",
-                "application",
-                "apply",
-                "app",
-                "animal",
-                "answer",
-                "another",
-                "back",
-                "basket",
-                "bathroom",
-                "book",
-                "books",
-                "birthday",
-                "blue",
-                "black",
-                "car",
-                "card",
-                "care",
-                "cat",
-                "catch",
-                "computer",
-                "come",
-                "complete",
-                "day",
-                "dark",
-                "door",
-                "dog",
-                "school",
-                "schoolwork",
-                "science"
-        };
 
 
-        for (int i = 0; i<100; i++){
-            lockers[i] = false;
-        }
-        for (int i = 0; i<100; i++){
-            System.out.print(lockers[i]+",");
-        }
-        System.out.println(" ");
-        locker();
+
+//        for (int i = 0; i<100; i++){
+//            lockers[i] = false;
+//        }
+//        for (int i = 0; i<100; i++){
+//            System.out.print(lockers[i]+",");
+//        }
+//        System.out.println(" ");
+//        locker();
 
 
 //        System.out.println(nums4);
@@ -110,6 +99,312 @@ public class HelloController {
 
     }
 
+    public void HappyMeal() {
+        int i = 0;
+
+        boolean keepRunning = true;
+
+        while (keepRunning) {
+            i+=1;
+            System.out.println(i);
+
+            int randnum = (int) (Math.random() * 10) + 1;
+
+            havetoy[randnum - 1] = true;
+            numoftoy[randnum - 1] += 1;
+
+            keepRunning = false;
+
+            for (boolean hasToy : havetoy) {
+                if (!hasToy) {
+                    keepRunning = true;
+                }
+            }
+
+        }
+    }
+
+
+
+
+
+    public void contact(KeyEvent keyEvent) {
+
+//        wordListView.getItems().clear();
+//        String compare = dicenum.getText().toLowerCase();
+//        for (int i = 0; i<words.size();i++){
+//            if(words.get(i).startsWith(compare) ){
+//                wordListView.getItems().add(words.get(i));
+//            }
+//        }
+
+    }
+
+//    public void addwords() {
+//        words.addAll(Arrays.asList(
+//                    "app", "apple", "apples", "application", "apply",
+//                    "applying", "appointment", "approach", "approve", "approval",
+//
+//                    "ban", "banana", "band", "bandage", "bank",
+//                    "banking", "basket", "basketball", "battle", "battery",
+//
+//                    "car", "card", "care", "career", "careful",
+//                    "carry", "cart", "cartoon", "case", "castle",
+//
+//                    "com", "come", "computer", "computing", "company",
+//                    "compare", "complete", "completed", "complex", "communication",
+//
+//                    "run", "runner", "running", "runway", "runt",
+//                    "rush", "rushing", "rule", "ruler", "room",
+//
+//                    "test", "testing", "tested", "tester", "text",
+//                    "textbook", "team", "teacher", "teach", "technology",
+//
+//                    "game", "games", "gaming", "gamer", "garden",
+//                    "garage", "gas", "gate", "gift", "girl",
+//
+//                    "play", "player", "playing", "played", "plane",
+//                    "planet", "plant", "plastic", "place", "platform",
+//
+//                    "school", "science", "scientist", "score", "screen",
+//                    "search", "season", "second", "security", "software",
+//
+//                    "math", "matter", "material", "match", "machine",
+//                    "market", "manager", "maximum", "memory", "message",
+//
+//                    "answer", "area", "around", "another", "anything",
+//                    "always", "amount", "average", "book", "ball",
+//
+//                    "box", "blue", "big", "building", "business",
+//                    "button", "brother", "break", "class", "clean",
+//
+//                    "close", "code", "coding", "color", "college",
+//                    "control", "course", "create", "data", "database",
+//
+//                    "day", "decision", "design", "developer", "development",
+//                    "different", "document", "door", "easy", "education",
+//
+//                    "electric", "element", "else", "email", "energy",
+//                    "engine", "engineering", "example", "family", "fast",
+//
+//                    "father", "field", "final", "find", "finish",
+//                    "first", "food", "football", "general", "get",
+//
+//                    "give", "glass", "go", "great", "green",
+//                    "group", "grow", "growth", "hand", "happy",
+//
+//                    "hard", "head", "health", "help", "home",
+//                    "house", "human", "hundred", "idea", "important",
+//
+//                    "information", "input", "inside", "internet", "item",
+//                    "interest", "interesting", "into", "job", "join",
+//
+//                    "jump", "key", "keyboard", "kind", "know",
+//                    "language", "large", "learn", "learning", "level",
+//
+//                    "library", "life", "light", "main", "make",
+//                    "many", "map", "model", "money", "month",
+//
+//                    "name", "natural", "number", "network", "new",
+//                    "next", "night", "object", "office", "open",
+//
+//                    "operation", "option", "order", "paper", "parent",
+//                    "part", "people", "person", "picture", "program",
+//
+//                    "programming", "question", "quick", "read", "reader",
+//                    "real", "reason", "record", "red", "result",
+//
+//                    "return", "right", "road", "robot", "rock",
+//                    "simple", "size", "skill", "small", "space",
+//
+//                    "start", "state", "step", "student", "system",
+//                    "table", "thing", "think", "time", "today",
+//
+//                    "tool", "under", "understand", "use", "user",
+//                    "using", "value", "variable", "version", "video",
+//
+//                    "view", "wait", "walk", "water", "website",
+//                    "window", "year", "yellow", "yes", "young",
+//
+//                    "your", "zero", "zone"
+//            ));
+//        words.addAll(Arrays.asList(
+//                // A
+//                "able", "about", "above", "accept", "access",
+//                "account", "action", "active", "actual", "add",
+//                "address", "adjust", "adventure", "after", "again",
+//                "against", "age", "agree", "ahead", "allow",
+//                "almost", "alone", "along", "already", "also",
+//                "although", "always", "amazing", "among", "animal",
+//                "answer", "anyone", "anything", "appear", "area",
+//                "arm", "arrive", "article", "artist", "ask",
+//                "available", "away",
+//
+//                // B
+//                "back", "background", "bad", "balance", "ball",
+//                "bank", "base", "basic", "basket", "beautiful",
+//                "because", "become", "before", "begin", "behind",
+//                "believe", "best", "better", "between", "beyond",
+//                "bike", "bird", "black", "block", "blue",
+//                "board", "body", "book", "both", "bottom",
+//                "box", "boy", "break", "bring", "brother",
+//                "build", "building", "business", "button",
+//
+//                // C
+//                "call", "camera", "camp", "can", "capital",
+//                "car", "card", "care", "career", "carry",
+//                "case", "catch", "cause", "center", "certain",
+//                "change", "character", "check", "child", "choose",
+//                "city", "class", "clean", "clear", "close",
+//                "code", "coding", "college", "color", "come",
+//                "common", "company", "complete", "computer",
+//                "connect", "control", "correct", "course",
+//                "create", "creative", "current",
+//
+//                // D
+//                "daily", "dance", "danger", "data", "database",
+//                "day", "deal", "decide", "decision", "deep",
+//                "degree", "develop", "developer", "development",
+//                "different", "difficult", "direct", "direction",
+//                "discover", "distance", "do", "doctor", "dog",
+//                "door", "down", "draw", "dream", "drive",
+//                "during",
+//
+//                // E
+//                "each", "early", "easy", "education", "effect",
+//                "eight", "else", "email", "end", "energy",
+//                "engine", "engineer", "engineering", "enough",
+//                "enter", "entire", "environment", "especially",
+//                "even", "event", "every", "everyone", "everything",
+//                "example", "experience", "explain", "eye",
+//
+//                // F
+//                "face", "fact", "family", "far", "fast",
+//                "father", "favorite", "feature", "feel", "field",
+//                "figure", "file", "fill", "final", "find",
+//                "fine", "finish", "fire", "first", "fish",
+//                "five", "floor", "follow", "football", "force",
+//                "form", "four", "free", "friend", "from",
+//                "front", "full", "function", "future",
+//
+//                // G
+//                "game", "garden", "gas", "gate", "general",
+//                "get", "girl", "give", "glass", "go",
+//                "goal", "good", "government", "grade", "great",
+//                "green", "group", "grow", "growth", "guess",
+//                "guide",
+//
+//                // H
+//                "hair", "half", "hand", "happen", "happy",
+//                "hard", "head", "health", "hear", "heart",
+//                "help", "high", "history", "home", "hope",
+//                "house", "however", "human", "hundred",
+//
+//                // I
+//                "idea", "identify", "image", "important", "include",
+//                "information", "input", "inside", "instead", "interest",
+//                "interesting", "internet", "into", "issue", "item",
+//
+//                // J
+//                "job", "join", "jump", "just",
+//
+//                // K
+//                "keep", "key", "keyboard", "kind", "know",
+//                "knowledge",
+//
+//                // L
+//                "language", "large", "last", "late", "later",
+//                "learn", "learning", "left", "level", "library",
+//                "life", "light", "like", "line", "list",
+//                "little", "live", "local", "long", "look",
+//                "love", "low",
+//
+//                // M
+//                "machine", "main", "make", "manage", "manager",
+//                "many", "map", "market", "math", "matter",
+//                "maximum", "maybe", "mean", "meaning", "measure",
+//                "memory", "message", "method", "middle", "might",
+//                "million", "minimum", "minute", "model", "money",
+//                "month", "more", "most", "move", "music",
+//
+//                // N
+//                "name", "natural", "near", "necessary", "need",
+//                "network", "never", "new", "next", "night",
+//                "nine", "nothing", "notice", "number",
+//
+//                // O
+//                "object", "office", "often", "okay", "old",
+//                "once", "one", "only", "open", "operation",
+//                "option", "order", "other", "outside", "over",
+//                "own",
+//
+//                // P
+//                "page", "paper", "parent", "part", "party",
+//                "pass", "past", "people", "percent", "person",
+//                "phone", "picture", "place", "plan", "plane",
+//                "planet", "plant", "play", "player", "point",
+//                "possible", "power", "practice", "prepare",
+//                "present", "pretty", "problem", "process",
+//                "program", "programming", "project", "provide",
+//
+//                // Q
+//                "question", "quick", "quickly", "quite",
+//
+//                // R
+//                "race", "radio", "raise", "read", "ready",
+//                "real", "reason", "receive", "record", "red",
+//                "remember", "remove", "report", "result", "return",
+//                "right", "road", "rock", "room", "round",
+//                "run", "runner", "running", "rule", "ruler",
+//
+//                // S
+//                "same", "school", "science", "scientist", "score",
+//                "screen", "search", "season", "second", "security",
+//                "see", "seem", "send", "service", "set",
+//                "seven", "share", "short", "show", "simple",
+//                "since", "six", "size", "skill", "small",
+//                "software", "some", "someone", "something", "song",
+//                "space", "special", "sport", "start", "state",
+//                "step", "still", "stop", "story", "student",
+//                "study", "subject", "success", "system",
+//
+//                // T
+//                "table", "take", "teacher", "team", "technology",
+//                "tell", "ten", "test", "testing", "text",
+//                "than", "that", "their", "them", "then",
+//                "there", "thing", "think", "third", "this",
+//                "three", "time", "today", "together", "tool",
+//                "top", "total", "town", "train", "travel",
+//                "tree", "try", "turn", "two",
+//
+//                // U
+//                "under", "understand", "unit", "until", "up",
+//                "use", "user", "using", "usually",
+//
+//                // V
+//                "value", "variable", "various", "version", "very",
+//                "video", "view", "visit", "voice",
+//
+//                // W
+//                "wait", "walk", "want", "water", "way",
+//                "website", "week", "well", "what", "when",
+//                "where", "which", "while", "white", "whole",
+//                "why", "window", "with", "word", "work",
+//                "world", "write", "writer",
+//
+//                // X/Y/Z
+//                "year", "yellow", "yes", "yet", "young",
+//                "your", "yourself", "zero", "zone"
+//        ));
+//    }
+    public void selectWord(MouseEvent mouseEvent) {
+        String selectedWord = wordListView.getSelectionModel().getSelectedItem().toString();
+
+        if (selectedWord != null) {
+            dicenum.setText(selectedWord);
+            wordListView.getItems().clear();
+        }
+    }
     public void locker() {
         for (int i = 1; i <= 100; i++) {
 
@@ -119,7 +414,6 @@ public class HelloController {
 
                 if (x % i == 0) {
 
-                    // Toggle the locker
                     if (lockers[x - 1]) {
                         lockers[x - 1] = false;
                     } else {

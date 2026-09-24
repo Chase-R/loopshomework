@@ -10,11 +10,11 @@
    <children>
       <Button layoutX="441.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleadd" text="add" textFill="#dd1919" />
       <Label fx:id="lblDisplay" layoutX="404.0" layoutY="136.0" text="this is where we display things" />
-      <TextField fx:id="dicenum" layoutX="208.0" layoutY="106.0" promptText="number of dice" />
+      <TextField fx:id="dicenum" layoutX="208.0" layoutY="106.0" onKeyTyped="#contact" promptText="number of dice" />
       <TextField fx:id="diceside" layoutX="404.0" layoutY="200.0" promptText="dice sides" />
       <Button fx:id="replace" layoutX="441.0" layoutY="57.0" mnemonicParsing="false" onAction="#handlereplace" text="replace" textFill="#dd1919" />
       <Button fx:id="replace1" layoutX="251.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleClick" text="start" textFill="#dd1919" />
       <TextField fx:id="txtrolls" layoutX="404.0" layoutY="234.0" promptText="rolls" />
-      <ListView fx:id="wordListView" layoutX="183.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="wordListView" layoutX="183.0" layoutY="147.0" onMouseClicked="#selectWord" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
