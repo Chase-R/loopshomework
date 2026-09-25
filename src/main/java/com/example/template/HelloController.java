@@ -9,7 +9,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HelloController {
 
@@ -35,6 +34,14 @@ public class HelloController {
     //some prizes are rarer
     //one with equa and one with unequal
 
+
+
+    //for homework do 2 array list
+    //prizes[0,0,0,0]
+    //[5,30,50,15]
+    //likly hood[5,35.85,100]
+    // if less then first item the prize 1 else if less then second ad so on
+
     private int[] nums = new int[10];
     private ArrayList<Integer> nums2 = new ArrayList<>();
     private ArrayList<Integer> nums3 = new ArrayList<>();
@@ -44,13 +51,14 @@ public class HelloController {
     public  ArrayList<Character> chararray = new ArrayList<>();
     public  ArrayList<Character> codearray = new ArrayList<>();
     private boolean[] lockers = new boolean[100];
-    private boolean[] havetoy = new boolean[10];
-    private int[] numoftoy = new int[10];
+    private boolean[] realhavetoy = new boolean[10];
+    private int[] realnumoftoy = new int[10];
     ArrayList<String> words = new ArrayList<>();
 
     public void handleClick(ActionEvent actionEvent) {
-        HappyMeal();
-        printarrayInts(numoftoy);
+      //  printarrayInts(HappyMealEqual(Integer.parseInt(dicenum.getText())));
+        happyMeal();
+        printarrayInts(realnumoftoy);
 
 //        words.clear();
 //        addwords();
@@ -99,29 +107,80 @@ public class HelloController {
 
     }
 
-    public void HappyMeal() {
+    public int[] HappyMealEqual(int prizes) {
+        boolean[] havetoy = new boolean[prizes];
+        int[] numoftoy = new int[prizes];
         int i = 0;
-
-        boolean keepRunning = true;
-
-        while (keepRunning) {
-            i+=1;
-            System.out.println(i);
-
-            int randnum = (int) (Math.random() * 10) + 1;
+        while (!haveAllToys(havetoy)) {
+            i += 1;
+            int randnum = (int) (Math.random() * prizes) + 1;
 
             havetoy[randnum - 1] = true;
             numoftoy[randnum - 1] += 1;
+        }
 
-            keepRunning = false;
+        System.out.println(i);
+        return numoftoy;
 
-            for (boolean hasToy : havetoy) {
-                if (!hasToy) {
-                    keepRunning = true;
-                }
-            }
+
+
+
+
+    }
+
+    public void happyMeal(){
+        int i = 0;
+        while (!haveAllToys(realhavetoy)) {
+            i+=1;
+            int toy = toyPicker();
+
+            realhavetoy[toy - 1] = true;
+            realnumoftoy[toy - 1] += 1;
 
         }
+
+        System.out.println(i);
+    }
+
+
+    public boolean haveAllToys(boolean[] toys) {
+        for (boolean hasToy : toys) {
+            if (!hasToy) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public int toyPicker(){
+        int toy = 0;
+
+        int randNum = (int)(Math.random() * 100) + 1;
+
+        if (randNum <= 30) {
+            toy = 1;
+        } else if (randNum <= 50) {
+            toy = 2;
+        } else if (randNum <= 65) {
+            toy = 3;
+        } else if (randNum <= 75) {
+            toy = 4;
+        } else if (randNum <= 82) {
+            toy = 5;
+        } else if (randNum <= 88) {
+            toy = 6;
+        } else if (randNum <= 93) {
+            toy = 7;
+        } else if (randNum <= 96) {
+            toy = 8;
+        } else if (randNum <= 99) {
+            toy = 9;
+        } else {
+            toy = 10;
+        }
+        return toy;
     }
 
 
